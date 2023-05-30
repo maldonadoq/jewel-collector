@@ -9,17 +9,6 @@
         // Add Obstacles
         map.addCell(new Obstacle(5, 0, " ## "));
         map.addCell(new Obstacle(5, 1, " ## "));
-        map.addCell(new Obstacle(5, 2, " ## "));
-        map.addCell(new Obstacle(5, 3, " ## "));
-        map.addCell(new Obstacle(5, 4, " ## "));
-        map.addCell(new Obstacle(5, 5, " ## "));
-        map.addCell(new Obstacle(5, 6, " ## "));
-
-        map.addCell(new Obstacle(5, 9, " $$ "));
-        map.addCell(new Obstacle(3, 9, " $$ "));
-        map.addCell(new Obstacle(8, 3, " $$ "));
-        map.addCell(new Obstacle(2, 5, " $$ "));
-        map.addCell(new Obstacle(1, 4, " $$ "));
 
         // Create Robot
         Robot robot = new Robot(0, 0);
