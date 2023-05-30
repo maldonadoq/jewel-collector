@@ -3,23 +3,35 @@ public class Map
     ICell[,] board;
     public Map(int rows, int cols)
     {
-        this.board = new ICell[rows, cols];
+        board = new ICell[rows, cols];
+        initialize();
     }
 
-    void printMap()
+    public void initialize()
     {
-        for (int i = 0; i < this.board.GetLength(0); i++)
+        for (int i = 0; i < board.GetLength(0); i++)
         {
-            for (int j = 0; j < this.board.GetLength(1); j++)
+            for (int j = 0; j < board.GetLength(1); j++)
             {
-                this.board[i, j].print();
+                board[i, j] = new Empty(i, j);
+            }
+        }
+    }
+
+    public void printMap()
+    {
+        for (int i = 0; i < board.GetLength(0); i++)
+        {
+            for (int j = 0; j < board.GetLength(1); j++)
+            {
+                board[i, j].print();
             }
             Console.Write("\n");
         }
     }
 
-    void addCell(ICell cell)
+    public void addCell(ICell cell)
     {
-        this.board[cell.x, cell.y] = cell;
+        board[cell.x, cell.y] = cell;
     }
 }

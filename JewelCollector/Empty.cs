@@ -4,15 +4,15 @@ public class Empty : ICell
     public int y { get; set; }
     public string value { get; set; } = string.Empty;
 
-    public Empty(int x, int y)
+    public Empty(int _x, int _y)
     {
-        this.x = x;
-        this.y = y;
-        this.value = " -- ";
+        x = _x;
+        y = _y;
+        value = " -- ";
     }
 
     public void print()
     {
-        Console.Write(this.value);
+        Console.Write(value);
     }
 }
