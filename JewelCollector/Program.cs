@@ -9,6 +9,8 @@
         // Add obstacle
         map.addCell(new Obstacle(2, 2, " ## "));
 
+        Robot robot = new Robot(0, 0);
+        map.addCell(robot);
 
         bool running = true;
 
@@ -17,7 +19,7 @@
             map.printMap();
 
             Console.WriteLine("Enter the command: ");
-            string command = Console.ReadLine();
+            string command = Console.ReadLine() ?? string.Empty;
 
             if (command.Equals("quit"))
             {
@@ -33,7 +35,7 @@
             }
             else if (command.Equals("s"))
             {
-
+                
             }
             else if (command.Equals("d"))
             {
