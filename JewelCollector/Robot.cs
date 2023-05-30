@@ -13,10 +13,15 @@ public class Robot : ICell
     }
     public void move(Map _map, int _x, int _y) 
     {
+        _map.addCell(new Empty(x,y));
+        x = _x;
+        y = _y;
         
+        _map.addCell(this);
     }
     public void collect() { }
-    public void update() { }
+    public void update() {
+    }
     public void print()
     {
         Console.Write(value);
