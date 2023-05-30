@@ -17,4 +17,9 @@ public class Map
             Console.Write("\n");
         }
     }
+
+    void addCell(ICell cell)
+    {
+        this.board[cell.x, cell.y] = cell;
+    }
 }
