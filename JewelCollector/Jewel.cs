@@ -1,4 +1,4 @@
-public class Jewel:ICell
+public class Jewel : ICell
 {
     int score;
     public int x { get; set; }
