@@ -17,7 +17,6 @@ public class Robot : ICell
         {
             if (_map.board[_x, _y] is Empty)
             {
-                Console.WriteLine("EMPTY");
                 _map.addCell(new Empty(x, y));
                 x = _x;
                 y = _y;
@@ -34,7 +33,6 @@ public class Robot : ICell
 
     public bool isJewel(Map _map, int _x, int _y)
     {
-        Console.WriteLine("Jewel");
         try
         {
             if (_map.board[_x, _y] is Jewel)
@@ -54,7 +52,6 @@ public class Robot : ICell
 
     public void collect(Map _map)
     {
-        Console.WriteLine("collect");
         if (isJewel(_map, x, y - 1))
         {
             bag.Add((Jewel)_map.board[x, y - 1]);
@@ -75,8 +72,11 @@ public class Robot : ICell
             bag.Add((Jewel)_map.board[x + 1, y]);
             _map.addCell(new Empty(x + 1, y));
         }
+    }
 
-        Console.WriteLine(bag.Sum(x => x.score));
+    public void printScore()
+    {
+        Console.WriteLine("Bag total items: " + bag.Count + " | Bag total value: " + bag.Sum(x => x.score));
     }
     public void print()
     {
