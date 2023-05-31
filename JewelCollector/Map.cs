@@ -1,6 +1,6 @@
 public class Map
 {
-    ICell[,] board;
+    public ICell[,] board;
     public Map(int rows, int cols)
     {
         board = new ICell[rows, cols];

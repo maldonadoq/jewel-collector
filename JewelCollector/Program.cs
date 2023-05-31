@@ -9,10 +9,13 @@
         // Add Obstacles
         map.addCell(new Obstacle(5, 0, " ## "));
         map.addCell(new Obstacle(5, 1, " ## "));
-
+        map.addCell(new Obstacle(1, 0, " ## "));
         // Create Robot
         Robot robot = new Robot(0, 0);
         map.addCell(robot);
+
+        Jewel jewel = new Jewel(1,1," JR ", 100);
+        map.addCell(jewel);
 
         bool running = true;
         do
@@ -44,7 +47,7 @@
             }
             else if (command.Equals("g"))
             {
-                robot.collect();
+                robot.collect(map);
             }
         } while (running);
     }
