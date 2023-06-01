@@ -4,6 +4,7 @@ public class Robot : ICell
     public int x { get; set; }
     public int y { get; set; }
     public string value { get; set; } = string.Empty;
+    public ConsoleColor color { get; set; } = ConsoleColor.Black;
 
     public Robot(int _x, int _y)
     {
@@ -78,9 +79,4 @@ public class Robot : ICell
     {
         Console.WriteLine("Bag total items: " + bag.Count + " | Bag total value: " + bag.Sum(x => x.score));
     }
-    public void print()
-    {
-        Console.Write(value);
-    }
-
 }
