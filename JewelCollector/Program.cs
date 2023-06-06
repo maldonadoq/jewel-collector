@@ -17,7 +17,7 @@
             robot.y = 0;
             map.addCell(robot);
 
-             // Add Obstacles
+            // Add Obstacles
             //Water
             map.addCell(new Obstacle(5, 0, " ## ", ConsoleColor.Cyan));
             map.addCell(new Obstacle(5, 1, " ## ", ConsoleColor.Cyan));
@@ -46,6 +46,11 @@
             map.addRandomCells(3, "JB");
             map.addRandomCells(10, "##");
             map.addRandomCells(5, "$$"); */
+
+            //Radioactive
+            map.addCell(new Radioactive(0, 2, " !! ", ConsoleColor.Yellow));
+            map.addCell(new Radioactive(2, 2, " !! ", ConsoleColor.Yellow));
+            map.addCell(new Radioactive(2, 0, " !! ", ConsoleColor.Yellow));
 
             bool running = true;
             do
