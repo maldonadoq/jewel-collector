@@ -1,12 +1,27 @@
+/// <summary>
+/// 
+/// </summary>
 public class Map
 {
+    /// <summary>
+    /// Map's board
+    /// </summary>
     public ICell[,] board;
-    public Map(int rows, int cols)
+
+    /// <summary>
+    /// Class constructor where instance field board (Array 2D) and initialize this board
+    /// </summary>
+    /// <param name="_rows">Board rows ()</param>
+    /// <param name="_cols">Board cols</param>
+    public Map(int _rows, int _cols)
     {
-        board = new ICell[rows, cols];
+        board = new ICell[_rows, _cols];
         initialize();
     }
 
+    /// <summary>
+    /// Initialize map with Empty cells;
+    /// </summary>
     public void initialize()
     {
         for (int i = 0; i < board.GetLength(0); i++)
@@ -18,6 +33,9 @@ public class Map
         }
     }
 
+    /// <summary>
+    /// Print map
+    /// </summary>
     public void printMap()
     {
         for (int i = 0; i < board.GetLength(0); i++)
@@ -30,11 +48,20 @@ public class Map
         }
     }
 
-    public void addCell(ICell cell)
+    /// <summary>
+    /// Add any cell to map
+    /// </summary>
+    /// <param name="_cell">Cell parameter (Jewel, Obstacle, Robot)</param>
+    public void addCell(ICell _cell)
     {
-        board[cell.x, cell.y] = cell;
+        board[_cell.x, _cell.y] = _cell;
     }
 
+    /// <summary>
+    /// Add random cells to map
+    /// </summary>
+    /// <param name="_numbers">Number of cell type</param>
+    /// <param name="_type">Cell type</param>
     public void addRandomCells(int _numbers, string _type)
     {
         Random rnd = new Random();
@@ -69,6 +96,10 @@ public class Map
         }
     }
 
+    /// <summary>
+    /// Verify if map has Jewels
+    /// </summary>
+    /// <returns>Return True if there are jewels or False if not</returns>
     public bool hasJewels()
     {
         bool isJewel = false;
