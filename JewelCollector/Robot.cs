@@ -60,7 +60,6 @@ public class Robot : ICell
                     
                     if (isRadioactive(_map, coord[i, 0], coord[i, 1]))
                     {
-                        Console.WriteLine("olaaa" + _map.board[coord[i, 0], coord[i, 1]]);
                         _radioactive = true;
                         verifyEnergy(_map.board[coord[i, 0], coord[i, 1]].value);
                     }
