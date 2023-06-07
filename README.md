@@ -15,8 +15,10 @@ $ dotnet run --project JewelCollector
 
 ## Software
 1.  Visual Studio Code
-2.  .Net 7
-3.  Github
+2.  C#
+3.  .Net 7
+4.  Github
+5.  Doxygen
 
 ## Screenshots
 - Game
@@ -27,7 +29,7 @@ $ dotnet run --project JewelCollector
   - Level 3
     - ![Alt text](./images/level3.png "Level 3")
 
-- Documentation
+- Documentation with Doxygen
   - Class List
     - ![Alt text](./images/doc1.png "Doxygen 1")
   - ICell Interface
