@@ -1,5 +1,5 @@
 /// <summary>
-/// 
+/// Clase Map, encargado de almacenar toda las celulas en una array 2D
 /// </summary>
 public class Map
 {
@@ -34,7 +34,7 @@ public class Map
     }
 
     /// <summary>
-    /// Print map
+    /// Metodo encargado de imprimir el mapa
     /// </summary>
     public void printMap()
     {
@@ -51,7 +51,7 @@ public class Map
     /// <summary>
     /// Add any cell to map
     /// </summary>
-    /// <param name="_cell">Cell parameter (Jewel, Obstacle, Robot)</param>
+    /// <param name="_cell">Cell parameter (Jewel, Obstacle, Robot, Radioactive)</param>
     public void addCell(ICell _cell)
     {
         board[_cell.x, _cell.y] = _cell;
@@ -73,25 +73,29 @@ public class Map
             int x = rnd.Next(0, rows);
             int y = rnd.Next(0, cols);
 
-            if (_type.Equals("JR"))
+            if (_type.Equals(" JR "))
             {
-                addCell(new Jewel(x, y, " JR ", 100, ConsoleColor.Red));
+                addCell(new Jewel(x, y, _type, 100, ConsoleColor.Red));
             }
-            else if (_type.Equals("JG"))
+            else if (_type.Equals(" JG "))
             {
-                addCell(new Jewel(x, y, " JG ", 50, ConsoleColor.Green));
+                addCell(new Jewel(x, y, _type, 50, ConsoleColor.Green));
             }
-            else if (_type.Equals("JB"))
+            else if (_type.Equals(" JB "))
             {
-                addCell(new Jewel(x, y, " JB ", 10, ConsoleColor.Blue));
+                addCell(new Jewel(x, y, _type, 10, ConsoleColor.Blue));
             }
-            else if (_type.Equals("##"))
+            else if (_type.Equals(" ## "))
             {
-                addCell(new Obstacle(x, y, " ## ", ConsoleColor.Cyan));
+                addCell(new Obstacle(x, y, _type, ConsoleColor.Cyan));
             }
-            else if (_type.Equals("$$"))
+            else if (_type.Equals(" $$ "))
             {
-                addCell(new Obstacle(5, 9, " $$ ", ConsoleColor.DarkGray));
+                addCell(new Obstacle(x, y, _type, ConsoleColor.DarkGray));
+            }
+            else if (_type.Equals(" !! "))
+            {
+                addCell(new Radioactive(x, y));
             }
         }
     }

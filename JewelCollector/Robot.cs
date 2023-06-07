@@ -1,6 +1,19 @@
+/// <summary>
+/// Clase Robot, encargada de la funcionalidad del juego
+/// </summary>
 public class Robot : ICell
 {
-    public int energy;
+    /// <summary>
+    /// Energia del robot
+    /// </summary>
+    /// <value>5</value>
+    public int energy { get; set; }
+
+    /// <summary>
+    /// Lista que almacenará todas las joyas recolectadas
+    /// </summary>
+    /// <typeparam name="Jewel"></typeparam>
+    /// <returns></returns>
     static List<Jewel> bag = new List<Jewel>();
 
     /// <summary>
@@ -39,6 +52,13 @@ public class Robot : ICell
         value = " ME ";
         energy = 5;
     }
+
+    /// <summary>
+    /// Metodo encargado de mover el robot dentro del mapa.
+    /// </summary>
+    /// <param name="_map">Mapa por donde se desplazará el robot</param>
+    /// <param name="_x">Posición X del mapa hacia donde se desplazará el robot</param>
+    /// <param name="_y">Posición Y del mapa hacia donde se desplazará el robot</param>
     public void move(Map _map, int _x, int _y)
     {
         int[,] coord = { { _x, _y - 1 }, { _x, _y + 1 }, { _x - 1, _y }, { _x + 1, _y } };
@@ -49,27 +69,26 @@ public class Robot : ICell
                 _map.addCell(new Empty(x, y));
                 x = _x;
                 y = _y;
-
                 _map.addCell(this);
 
                 //verify radioactive
                 bool _radioactive = false;
-
                 for (int i = 0; i < coord.GetLength(0); i++)
                 {
-                    
-                    if (isRadioactive(_map, coord[i, 0], coord[i, 1]))
+                    if (isType(_map, coord[i, 0], coord[i, 1], 3))
                     {
                         _radioactive = true;
                         verifyEnergy(_map.board[coord[i, 0], coord[i, 1]].value);
                     }
                 }
 
-                if(!_radioactive) {
+                if (!_radioactive)
+                {
                     energy = energy - 1;
                 }
             }
-            if(_map.board[_x,_y] is Radioactive) {
+            else if (_map.board[_x, _y] is Radioactive)
+            {
                 _map.addCell(new Empty(x, y));
                 x = _x;
                 y = _y;
@@ -84,11 +103,27 @@ public class Robot : ICell
 
     }
 
-    public bool isJewel(Map _map, int _x, int _y)
+    /// <summary>
+    /// Metodo que determina si una posición en el mapa es de un determinado tipo.
+    /// </summary>
+    /// <param name="_map">Mapa en el cual se evaluará la posición (_x, _y)</param>
+    /// <param name="_x">Posición X en el mapa realizaremos la verificación</param>
+    /// <param name="_y">Posición Y en el mapa realizaremos la verificación</param>
+    /// <param name="_type">Variable que determina el tipo de celula (1: Jewel, 2: Obstacle, 3: Radiactive)</param>
+    /// <returns>true or false</returns>
+    public bool isType(Map _map, int _x, int _y, int _type)
     {
         try
         {
-            if (_map.board[_x, _y] is Jewel)
+            if (_type == 1 && _map.board[_x, _y] is Jewel)
+            {
+                return true;
+            }
+            else if (_type == 2 && _map.board[_x, _y] is Obstacle)
+            {
+                return true;
+            }
+            else if (_type == 3 && _map.board[_x, _y] is Radioactive)
             {
                 return true;
             }
@@ -103,80 +138,56 @@ public class Robot : ICell
         }
     }
 
-    public bool isRadioactive(Map _map, int _x, int _y)
-    {
-        try
-        {
-            if (_map.board[_x, _y] is Radioactive)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (IndexOutOfRangeException)
-        {
-            return false;
-        }
-    }
-
-    public bool isObstacle(Map _map, int _x, int _y)
-    {
-        try
-        {
-            if (_map.board[_x, _y] is Obstacle)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (IndexOutOfRangeException)
-        {
-            return false;
-        }
-    }
-
+    /// <summary>
+    /// Metodo encargado de aumentar o disminuir la energia según el valor pasado
+    /// </summary>
+    /// <param name="_value">Indica el valor del mapa (" JB ", " $$ ", " !! ")</param>
     public void verifyEnergy(string _value)
     {
         if (_value == " JB ")
         {
             energy = energy + 5;
         }
-        if (_value == " $$ ")
+        else if (_value == " $$ ")
         {
             energy = energy + 3;
         }
-        if (_value == " !! ")
+        else if (_value == " !! ")
         {
             energy = energy - 10;
         }
     }
 
+    /// <summary>
+    /// Metodo para recolectar las Joyas, Arboles
+    /// </summary>
+    /// <param name="_map">Mapa por donde realizaremos la verificación al presionar la tecla "g" (Norte, Sur, Este, Oeste)</param>
     public void collect(Map _map)
     {
+        // Direcciones por donde verificar
         int[,] coord = { { x, y - 1 }, { x, y + 1 }, { x - 1, y }, { x + 1, y } };
 
         for (int i = 0; i < coord.GetLength(0); i++)
         {
-            if (isJewel(_map, coord[i, 0], coord[i, 1]))
+            // Verificación de Joyas
+            if (isType(_map, coord[i, 0], coord[i, 1], 1))
             {
                 bag.Add((Jewel)_map.board[coord[i, 0], coord[i, 1]]);
                 verifyEnergy(_map.board[coord[i, 0], coord[i, 1]].value);
                 _map.addCell(new Empty(coord[i, 0], coord[i, 1]));
             }
 
-            if (isObstacle(_map, coord[i, 0], coord[i, 1]))
+            // Verificación de Obstaculo
+            if (isType(_map, coord[i, 0], coord[i, 1], 2))
             {
                 verifyEnergy(_map.board[coord[i, 0], coord[i, 1]].value);
             }
         }
     }
 
+    /// <summary>
+    /// Metodo encargado de imprimir en la consola el numero de items, el valor total y la energia acumulada
+    /// </summary>
     public void printScore()
     {
         Console.WriteLine("Bag total items: " + bag.Count + " | Bag total value: " + bag.Sum(x => x.score) + " | Energy: " + energy);

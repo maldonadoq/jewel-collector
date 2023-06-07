@@ -1,4 +1,7 @@
-﻿public class JewelCollector
+﻿/// <summary>
+/// Clase JewelCollector, clase encargada de crear los niveles, reconocer los eventos del teclado para mover el juego
+/// </summary>
+public class JewelCollector
 {
 
     public static void Main()
@@ -48,9 +51,9 @@
             map.addRandomCells(5, "$$"); */
 
             //Radioactive
-            map.addCell(new Radioactive(0, 2, " !! ", ConsoleColor.Yellow));
-            map.addCell(new Radioactive(2, 2, " !! ", ConsoleColor.Yellow));
-            map.addCell(new Radioactive(2, 0, " !! ", ConsoleColor.Yellow));
+            map.addCell(new Radioactive(0, 2));
+            map.addCell(new Radioactive(2, 2));
+            map.addCell(new Radioactive(2, 0));
 
             bool running = true;
             do
