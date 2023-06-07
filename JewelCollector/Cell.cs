@@ -1,32 +1,31 @@
 
 /// <summary>
-/// Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda del Mapa
+/// Interface ICell, this interface is responsible for having the necessary information in each cell of the Map
 /// </summary>
 public interface ICell
 {
     /// <summary>
-    /// Posición X en el mapa
+    /// Position X on the map
     /// </summary>
     int x { get; set; }
 
     /// <summary>
-    /// Posición Y en el mapa
+    /// Position Y on the map
     /// </summary>
     int y { get; set; }
 
     /// <summary>
-    /// Variable que almacena el string a imprimir por cada tipo de celula (Jewel, Obstacle, Robot)
+    /// Variable that stores the string to print for each type of cell (Jewel, Obstacle, Robot)
     /// </summary>
     string value { get; set; }
 
     /// <summary>
-    /// Color de la celula en la consola
+    /// Cell color on the console
     /// </summary>
     ConsoleColor color { get; set; }
 
     /// <summary>
-    /// Función que se encarga de imprimir las celulas, todas las clases que hereden de esta heredaran
-    /// esta función print, sin embargo cada clase puede re-implementar esta función
+    /// Function that prints cells, all classes that inherit from it, will inherit the print function, however each class can re-implement it
     /// </summary>
     public void print()
     {

@@ -1,5 +1,5 @@
 /// <summary>
-/// Clase Map, encargado de almacenar toda las celulas en una array 2D
+/// Class Map, responsible for storing all cells in a 2D array
 /// </summary>
 public class Map
 {
@@ -34,7 +34,7 @@ public class Map
     }
 
     /// <summary>
-    /// Metodo encargado de imprimir el mapa
+    /// Method responsible for printing the map
     /// </summary>
     public void printMap()
     {

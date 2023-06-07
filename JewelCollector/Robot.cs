@@ -1,50 +1,50 @@
 /// <summary>
-/// Clase Robot, encargada de la funcionalidad del juego
+/// Robot class, responsible for the functionality of the game
 /// </summary>
 public class Robot : ICell
 {
     /// <summary>
-    /// Energia del robot
+    /// Robot energy
     /// </summary>
     /// <value>5</value>
     public int energy { get; set; }
 
     /// <summary>
-    /// Lista que almacenará todas las joyas recolectadas
+    /// List that will store all collected jewel
     /// </summary>
     /// <typeparam name="Jewel"></typeparam>
     /// <returns></returns>
     static List<Jewel> bag = new List<Jewel>();
 
     /// <summary>
-    /// Posición X en el mapa
+    /// Position X on the map
     /// </summary>
     /// <value>[0,rows]</value>
     public int x { get; set; }
 
     /// <summary>
-    /// Posición Y en el mapa
+    /// Position Y on the map
     /// </summary>
     /// <value>[0,cols]</value>
     public int y { get; set; }
 
     /// <summary>
-    /// Variable que almacena el string a imprimir.
+    /// Variable that stores the string to print.
     /// </summary>
     /// <value>" ME "</value>
     public string value { get; set; } = string.Empty;
 
     /// <summary>
-    /// Color de la celula en la consola
+    /// Cell color on the console
     /// </summary>
     /// <value>ConsoleColor.Black</value>
     public ConsoleColor color { get; set; } = ConsoleColor.Black;
 
     /// <summary>
-    /// Constructor de la clase Robot
+    /// Constructor of the Robot class
     /// </summary>
-    /// <param name="_x">Posición X en el mapa</param>
-    /// <param name="_y">Posición Y en el mapa</param>
+    /// <param name="_x">Position X on the map</param>
+    /// <param name="_y">Position Y on the map</param>
     public Robot(int _x, int _y)
     {
         x = _x;
@@ -54,11 +54,11 @@ public class Robot : ICell
     }
 
     /// <summary>
-    /// Metodo encargado de mover el robot dentro del mapa.
+    /// Method of moving the robot inside the map.
     /// </summary>
-    /// <param name="_map">Mapa por donde se desplazará el robot</param>
-    /// <param name="_x">Posición X del mapa hacia donde se desplazará el robot</param>
-    /// <param name="_y">Posición Y del mapa hacia donde se desplazará el robot</param>
+    /// <param name="_map">Map where the robot will move</param>
+    /// <param name="_x">Position X of the map where the robot will move</param>
+    /// <param name="_y">Position Y of the map where the robot will move</param>
     public void move(Map _map, int _x, int _y)
     {
         int[,] coord = { { _x, _y - 1 }, { _x, _y + 1 }, { _x - 1, _y }, { _x + 1, _y } };
@@ -104,12 +104,12 @@ public class Robot : ICell
     }
 
     /// <summary>
-    /// Metodo que determina si una posición en el mapa es de un determinado tipo.
+    /// Method that determines if a position on the map is of a certain type.
     /// </summary>
-    /// <param name="_map">Mapa en el cual se evaluará la posición (_x, _y)</param>
-    /// <param name="_x">Posición X en el mapa realizaremos la verificación</param>
-    /// <param name="_y">Posición Y en el mapa realizaremos la verificación</param>
-    /// <param name="_type">Variable que determina el tipo de celula (1: Jewel, 2: Obstacle, 3: Radiactive)</param>
+    /// <param name="_map">Map on which the position will be evaluated (_x, _y)</param>
+    /// <param name="_x">Position X on the map where we’ll check the cell type</param>
+    /// <param name="_y">Position Y on the map where we’ll check the cell type</param>
+    /// <param name="_type">Variable that determines the type of cell (1: Jewel, 2: Obstacle, 3: Radiactive)</param>
     /// <returns>true or false</returns>
     public bool isType(Map _map, int _x, int _y, int _type)
     {
@@ -139,9 +139,9 @@ public class Robot : ICell
     }
 
     /// <summary>
-    /// Metodo encargado de aumentar o disminuir la energia según el valor pasado
+    /// Method to increase or decrease energy according to last value
     /// </summary>
-    /// <param name="_value">Indica el valor del mapa (" JB ", " $$ ", " !! ")</param>
+    /// <param name="_value">Indicates the value of the map (" JB ", " $$ ", " !! ")</param>
     public void verifyEnergy(string _value)
     {
         if (_value == " JB ")
@@ -159,17 +159,17 @@ public class Robot : ICell
     }
 
     /// <summary>
-    /// Metodo para recolectar las Joyas, Arboles
+    /// Method for collecting Jewels and energy of Trees
     /// </summary>
-    /// <param name="_map">Mapa por donde realizaremos la verificación al presionar la tecla "g" (Norte, Sur, Este, Oeste)</param>
+    /// <param name="_map">Map where we will check by pressing the "g" key (North, South, East, West)</param>
     public void collect(Map _map)
     {
-        // Direcciones por donde verificar
+        // Ddirections by which to verify
         int[,] coord = { { x, y - 1 }, { x, y + 1 }, { x - 1, y }, { x + 1, y } };
 
         for (int i = 0; i < coord.GetLength(0); i++)
         {
-            // Verificación de Joyas
+            // Jewel check
             if (isType(_map, coord[i, 0], coord[i, 1], 1))
             {
                 bag.Add((Jewel)_map.board[coord[i, 0], coord[i, 1]]);
@@ -177,7 +177,7 @@ public class Robot : ICell
                 _map.addCell(new Empty(coord[i, 0], coord[i, 1]));
             }
 
-            // Verificación de Obstaculo
+            // Obstacle Check
             if (isType(_map, coord[i, 0], coord[i, 1], 2))
             {
                 verifyEnergy(_map.board[coord[i, 0], coord[i, 1]].value);
@@ -186,7 +186,7 @@ public class Robot : ICell
     }
 
     /// <summary>
-    /// Metodo encargado de imprimir en la consola el numero de items, el valor total y la energia acumulada
+    /// Method for printing the number of items, total value and accumulated energy on the console
     /// </summary>
     public void printScore()
     {

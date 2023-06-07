@@ -1,12 +1,12 @@
 ﻿/// <summary>
-/// Clase JewelCollector, clase encargada de crear los niveles, reconocer los eventos del teclado para mover el juego
+/// JewelCollector class, class in charge of creating the levels, recognizing the events of the keyboard to move the game
 /// </summary>
 public class JewelCollector
 {
 
     public static void Main()
     {
-        // Create robot
+        // Create Robot
         Robot robot = new Robot(0, 0);
         int max_level = 10;
 
