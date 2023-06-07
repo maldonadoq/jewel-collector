@@ -1,0 +1,4 @@
+<map id="Jewel" name="Jewel">
+<area shape="rect" id="node1" title="Clase Jewel, encargada para crear Joyas en el mapa" alt="" coords="5,80,63,107"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="9,5,59,32"/>
+</map>

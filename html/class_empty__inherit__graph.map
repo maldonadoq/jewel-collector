@@ -1,0 +1,4 @@
+<map id="Empty" name="Empty">
+<area shape="rect" id="node1" title="Clase Empty, la cual será usada para inicializar el mapa" alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="12,5,63,32"/>
+</map>

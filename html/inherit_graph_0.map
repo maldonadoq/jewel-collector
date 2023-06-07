@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="5,107,56,133"/>
+<area shape="rect" id="node2" href="$class_empty.html" title="Clase Empty, la cual será usada para inicializar el mapa" alt="" coords="121,5,185,32"/>
+<area shape="rect" id="node3" href="$class_jewel.html" title="Clase Jewel, encargada para crear Joyas en el mapa" alt="" coords="125,56,182,83"/>
+<area shape="rect" id="node4" href="$class_obstacle.html" title="Clase Obstacle, encargada para crear los Obstaculos en el mapa" alt="" coords="114,107,193,133"/>
+<area shape="rect" id="node5" href="$class_radioactive.html" title="Clase Radioactive, encargada para crear Radioactive en el mapa" alt="" coords="104,157,203,184"/>
+<area shape="rect" id="node6" href="$class_robot.html" title="Clase Robot, encargada de la funcionalidad del juego" alt="" coords="123,208,183,235"/>
+</map>

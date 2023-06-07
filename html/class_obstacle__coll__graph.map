@@ -1,0 +1,4 @@
+<map id="Obstacle" name="Obstacle">
+<area shape="rect" id="node1" title="Clase Obstacle, encargada para crear los Obstaculos en el mapa" alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="19,5,70,32"/>
+</map>
