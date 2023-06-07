@@ -1,6 +1,6 @@
 
 /// <summary>
-/// Interface ICell, this interface is responsible for having the necessary information in each cell of the Map
+/// ICell interface, this interface is responsible for having the necessary information in each cell of the Map
 /// </summary>
 public interface ICell
 {

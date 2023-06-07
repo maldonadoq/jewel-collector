@@ -1,4 +1,4 @@
 <map id="Map" name="Map">
-<area shape="rect" id="node1" title="Clase Map, encargado de almacenar toda las celulas en una array 2D" alt="" coords="5,95,56,121"/>
-<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node1" title="Class Map, responsible for storing all cells in a 2D array" alt="" coords="5,95,56,121"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, this interface is responsible for having the necessary information in each cell of t..." alt="" coords="5,5,56,32"/>
 </map>

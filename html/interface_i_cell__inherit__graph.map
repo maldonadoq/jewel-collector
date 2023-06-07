@@ -1,8 +1,8 @@
 <map id="ICell" name="ICell">
-<area shape="rect" id="node1" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="189,5,240,32"/>
-<area shape="rect" id="node2" href="$class_empty.html" title="Clase Empty, la cual será usada para inicializar el mapa" alt="" coords="5,80,69,107"/>
-<area shape="rect" id="node3" href="$class_jewel.html" title="Clase Jewel, encargada para crear Joyas en el mapa" alt="" coords="94,80,151,107"/>
-<area shape="rect" id="node4" href="$class_obstacle.html" title="Clase Obstacle, encargada para crear los Obstaculos en el mapa" alt="" coords="175,80,254,107"/>
-<area shape="rect" id="node5" href="$class_radioactive.html" title="Clase Radioactive, encargada para crear Radioactive en el mapa" alt="" coords="279,80,377,107"/>
-<area shape="rect" id="node6" href="$class_robot.html" title="Clase Robot, encargada de la funcionalidad del juego" alt="" coords="402,80,462,107"/>
+<area shape="rect" id="node1" title="Interface ICell, this interface is responsible for having the necessary information in each cell of t..." alt="" coords="189,5,240,32"/>
+<area shape="rect" id="node2" href="$class_empty.html" title="Empty class, which will be used to initialize the map" alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node3" href="$class_jewel.html" title="Jewel class, responsible for creating Jewels on the map" alt="" coords="94,80,151,107"/>
+<area shape="rect" id="node4" href="$class_obstacle.html" title="Obstacle class, responsible for creating the Obstacle on the map" alt="" coords="175,80,254,107"/>
+<area shape="rect" id="node5" href="$class_radioactive.html" title="Radioactive Class, responsible for creating Radioactive on the map" alt="" coords="279,80,377,107"/>
+<area shape="rect" id="node6" href="$class_robot.html" title="Robot class, responsible for the functionality of the game" alt="" coords="402,80,462,107"/>
 </map>

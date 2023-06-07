@@ -1,5 +1,5 @@
 /// <summary>
-/// Radioactive Class, responsible for creating Radioactive on the map
+/// Radioactive class, responsible for creating Radioactive on the map
 /// </summary>
 public class Radioactive : ICell
 {

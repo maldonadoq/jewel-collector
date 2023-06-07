@@ -1,4 +1,4 @@
 <map id="Robot" name="Robot">
-<area shape="rect" id="node1" title="Clase Robot, encargada de la funcionalidad del juego" alt="" coords="5,80,65,107"/>
-<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="10,5,61,32"/>
+<area shape="rect" id="node1" title="Robot class, responsible for the functionality of the game" alt="" coords="5,80,65,107"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, this interface is responsible for having the necessary information in each cell of t..." alt="" coords="10,5,61,32"/>
 </map>

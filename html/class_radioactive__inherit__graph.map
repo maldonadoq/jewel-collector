@@ -1,4 +1,4 @@
 <map id="Radioactive" name="Radioactive">
-<area shape="rect" id="node1" title="Clase Radioactive, encargada para crear Radioactive en el mapa" alt="" coords="5,80,104,107"/>
-<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, esta interfaz es la encargada de tener las informaciones necesarias en cada celda de..." alt="" coords="29,5,80,32"/>
+<area shape="rect" id="node1" title="Radioactive Class, responsible for creating Radioactive on the map" alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node2" href="$interface_i_cell.html" title="Interface ICell, this interface is responsible for having the necessary information in each cell of t..." alt="" coords="29,5,80,32"/>
 </map>

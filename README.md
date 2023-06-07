@@ -1,11 +1,17 @@
 # Jewel Collector Game
-Este juego se basa en recolectar joyas cuando nos movemos en el tablero.
+This game is based on collecting jewels when we move on the map.
 
-- Entidades
+- Entities
   - Cell
   - Jewel
   - Obstacle
   - Radioactive
+
+## Run
+```console
+$ dotnet run --project JewelCollector
+```
+
 
 ## Software
 1.  Visual Studio Code
@@ -22,6 +28,10 @@ Este juego se basa en recolectar joyas cuando nos movemos en el tablero.
     - ![Alt text](./images/level3.png "Level 3")
 
 - Documentation
+  - Class List
+    - ![Alt text](./images/doc1.png "Doxygen 1")
+  - ICell Interface
+    - ![Alt text](./images/doc2.png "Doxygen 2")
 
 ## Contributors
 - [Jesamin Melissa Zevallos Quispe](https://github.com/Jesamin-30)

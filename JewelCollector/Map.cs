@@ -1,5 +1,5 @@
 /// <summary>
-/// Class Map, responsible for storing all cells in a 2D array
+/// Map class, responsible for storing all cells in a 2D array
 /// </summary>
 public class Map
 {
