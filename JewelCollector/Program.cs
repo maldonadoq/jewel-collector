@@ -8,64 +8,48 @@ public class JewelCollector
     {
         // Create Robot
         Robot robot = new Robot(0, 0);
-        int max_level = 10;
+        int max_level = 30;
 
+        bool playing;
+        int initial = 0;
+        ConsoleKeyInfo command;
         for (int level = 10; level <= max_level; level++)
         {
+            // Playing level
+            playing = true;
+
             // Create Map
             Map map = new Map(level, level);
+
+            // Add random Cells
+            map.addRandomCells(initial + 2, " JR ");
+            map.addRandomCells(initial + 2, " JG ");
+            map.addRandomCells(initial + 2, " JB ");
+            map.addRandomCells(initial + 2, " ## ");
+            map.addRandomCells(initial + 2, " $$ ");
+            map.addRandomCells(initial, " !! ");
 
             // Add Robot
             robot.x = 0;
             robot.y = 0;
             map.addCell(robot);
 
-            // Add Obstacles
-            //Water
-            map.addCell(new Obstacle(5, 0, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 1, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 2, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 3, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 4, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 5, " ## ", ConsoleColor.Cyan));
-            map.addCell(new Obstacle(5, 6, " ## ", ConsoleColor.Cyan));
-            //Tree
-            map.addCell(new Obstacle(5, 9, " $$ ", ConsoleColor.DarkGray));
-            map.addCell(new Obstacle(3, 9, " $$ ", ConsoleColor.DarkGray));
-            map.addCell(new Obstacle(8, 3, " $$ ", ConsoleColor.DarkGray));
-            map.addCell(new Obstacle(2, 5, " $$ ", ConsoleColor.DarkGray));
-            map.addCell(new Obstacle(1, 4, " $$ ", ConsoleColor.DarkGray));
-
-            // Add Jewels
-            map.addCell(new Jewel(1, 9, " JR ", 100, ConsoleColor.Red));
-            map.addCell(new Jewel(8, 8, " JR ", 100, ConsoleColor.Red));
-            map.addCell(new Jewel(9, 1, " JG ", 50, ConsoleColor.Green));
-            map.addCell(new Jewel(7, 6, " JG ", 50, ConsoleColor.Green));
-            map.addCell(new Jewel(9, 4, " JB ", 10, ConsoleColor.Blue));
-            map.addCell(new Jewel(2, 1, " JB ", 10, ConsoleColor.Blue));
-
-            /* map.addRandomCells(3, "JR");
-            map.addRandomCells(3, "JG");
-            map.addRandomCells(3, "JB");
-            map.addRandomCells(10, "##");
-            map.addRandomCells(5, "$$"); */
-
-            //Radioactive
-            map.addCell(new Radioactive(0, 2));
-            map.addCell(new Radioactive(2, 2));
-            map.addCell(new Radioactive(2, 0));
-
+            Console.WriteLine("Level: " + (initial + 1));
+            map.printMap();
+            robot.printScore();
             bool running = true;
             do
             {
-                map.printMap();
-                robot.printScore();
-
                 Console.Write("Enter the command: ");
-                ConsoleKeyInfo command = Console.ReadKey();
+                command = Console.ReadKey();
                 Console.WriteLine();
 
-                if (command.KeyChar.Equals('w'))
+                if (command.KeyChar.Equals('q'))
+                {
+                    playing = false;
+                    break;
+                }
+                else if (command.KeyChar.Equals('w'))
                 {
                     robot.move(map, robot.x - 1, robot.y);
                 }
@@ -86,8 +70,17 @@ public class JewelCollector
                     robot.collect(map);
                 }
 
-                running = map.hasJewels();
+                map.printMap();
+                robot.printScore();
+                running = (robot.energy > 0 && map.hasJewels());
             } while (running);
+
+            if (!playing || robot.energy <= 0)
+            {
+                break;
+            }
+
+            initial += 1;
         }
     }
 }
